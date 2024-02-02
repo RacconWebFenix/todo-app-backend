@@ -11,10 +11,10 @@ datasource db {
 }
 
 model todos {
-  id        Int    @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   task      String
-  isDone    String
-  createdAt String
-  updatedAt String
-  deletedAt String
+  isDone    Boolean
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
 }

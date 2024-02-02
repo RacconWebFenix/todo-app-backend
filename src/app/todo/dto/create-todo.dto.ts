@@ -1,15 +1,19 @@
+import { ApiProperty, ApiPropertyOptional, OmitType } from '@nestjs/swagger';
 import { Todo } from '../entities/todo.entity';
-import { IsString } from 'class-validator';
+import { IsBoolean, IsNotEmpty, IsString } from 'class-validator';
 
-export class CreateTodoDto extends Todo {
-  @IsString()
+export class CreateTodoDto extends OmitType(Todo, [
+  'createdAt',
+  'deletedAt',
+  'id',
+  'updatedAt',
+]) {
+  @IsString({ message: 'O valor é uma string' })
+  @IsNotEmpty({ message: 'Campo obrigatório' })
+  @ApiProperty()
   task: string;
-  @IsString()
-  isDone: string;
-  @IsString()
-  createdAt: string;
-  @IsString()
-  updatedAt: string;
-  @IsString()
-  deletedAt: string;
+  @IsBoolean({ message: 'O valor é um Booleano' })
+  @IsNotEmpty({ message: 'Campo obrigatório' })
+  @ApiPropertyOptional()
+  isDone: boolean;
 }
