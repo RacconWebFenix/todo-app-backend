@@ -1,8 +1,8 @@
 import { ApiProperty, ApiPropertyOptional, OmitType } from '@nestjs/swagger';
-import { Todo } from '../entities/todo.entity';
+import { TodoEntity } from '../entities/todo.entity';
 import { IsBoolean, IsNotEmpty, IsString } from 'class-validator';
 
-export class CreateTodoDto extends OmitType(Todo, [
+export class CreateTodoDto extends OmitType(TodoEntity, [
   'createdAt',
   'deletedAt',
   'id',

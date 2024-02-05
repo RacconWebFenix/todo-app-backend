@@ -1,4 +1,4 @@
-import { Todo } from '../entities/todo.entity';
+import { TodoEntity } from '../entities/todo.entity';
 // export class IndexTodoSwagger extends PartialType(
 //   OmitType(Todo, ['createdAt', 'deletedAt', 'updatedAt']),
 
@@ -10,4 +10,4 @@ import { Todo } from '../entities/todo.entity';
 //   items: Todo[];
 // }
 
-export class IndexTodoSwagger extends Todo {}
+export class IndexTodoSwagger extends TodoEntity {}
